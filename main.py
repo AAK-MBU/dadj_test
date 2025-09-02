@@ -41,6 +41,9 @@ if __name__ == "__main__":
     for key, value in os.environ.items():
         print(f"{key}={value}")
 
+    dbcon = os.getenv("DBConnectionString")
+    print(f"DBConnectionString={dbcon}")
+
     ATS_URL = os.getenv("ATS_URL")
     print(f"ATS_URL={ATS_URL}")
     ATS_TOKEN = os.getenv("ATS_TOKEN")
