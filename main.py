@@ -1,3 +1,4 @@
+import os
 import asyncio
 import logging
 import sys
@@ -9,6 +10,8 @@ async def populate_queue(workqueue: Workqueue):
     logger = logging.getLogger(__name__)
 
     logger.info("Hello from populate workqueue!")
+
+
 
 
 async def process_workqueue(workqueue: Workqueue):
@@ -33,6 +36,15 @@ if __name__ == "__main__":
     ats = AutomationServer.from_environment()
 
     workqueue = ats.workqueue()
+
+    # Print all environment variables
+    for key, value in os.environ.items():
+        print(f"{key}={value}")
+
+    ATS_URL = os.getenv("ATS_URL")
+    print(f"ATS_URL={ATS_URL}")
+    ATS_TOKEN = os.getenv("ATS_TOKEN")
+    print(f"ATS_TOKEN={ATS_TOKEN}")
 
     # Initialize external systems for automation here..
 
